@@ -2,4 +2,56 @@
     <mat-toolbar>
         <span>Usuarios</span>
       </mat-toolbar> 
+
+      <mat-form-field appearance="standard">
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input autocomplete="off">
+      </mat-form-field>
+     <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort >
+
+      
+        <ng-container matColumnDef="Usuarios">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuarios </th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre</th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+      
+      
+        <ng-container matColumnDef="Apellido">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+          <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="Genero">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Genero </th>
+          <td mat-cell *matCellDef="let element"> {{element.genero}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Acciones">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let element" style="text-align: right;"> 
+            <a class="pointer" style="color: #1878b0 "  matTooltip="Ver usuario">
+              <mat-icon>search</mat-icon>
+            </a>
+            <a class="pointer" style="color: #1f516f" matTooltip="Editar usuario">
+              <mat-icon>edit</mat-icon>
+            </a>
+            <a class="pointer" style="color: #e15639" matTooltip="Eliminar usuario">
+              <mat-icon>delete</mat-icon>
+            </a>
+             </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
     </div>
