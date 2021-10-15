@@ -3,4 +3,5 @@ export interface Usuario {
     nombre: string;
     apellido: string;
     genero: String;
+    licencia: String;
 }

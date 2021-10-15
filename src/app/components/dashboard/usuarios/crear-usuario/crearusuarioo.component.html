@@ -17,11 +17,13 @@
                 <mat-grid-tile [colspan]="3" [rowspan]="5">
                     <img src="./assets/img/registro.png" width="350" height="350" >
                 </mat-grid-tile>
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-form-field class="ancho">
                         <mat-label>Nombre</mat-label>
                         <input matInput autocomplete="off" formControlName="nombre">
                       </mat-form-field>
+
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-form-field class="ancho">
@@ -29,6 +31,7 @@
                         <input matInput  autocomplete="off" formControlName="apellido"> 
                       </mat-form-field>
                 </mat-grid-tile>
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-form-field class="ancho">
                         <mat-label>Genero</mat-label>
@@ -38,8 +41,19 @@
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
-                      
                 </mat-grid-tile>
+
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field class="ancho">
+                      <mat-label>Licencia</mat-label>
+                      <mat-select formControlName="licencia">
+                        <mat-option *ngFor="let item of licencia" [value]="item">
+                          {{item}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+              </mat-grid-tile>
+
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <button mat-raised-button style="margin-right: 20px;">Volver</button>
                     <button type="sumbit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button>                </mat-grid-tile>

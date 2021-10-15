@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { CrearusuariooComponent } from './usuarios/crear-usuario/crearusuarioo.component';
+import { LicenciasComponent } from './licencias/licencias.component';
+
 
 
 @NgModule({
@@ -18,12 +20,15 @@ import { CrearusuariooComponent } from './usuarios/crear-usuario/crearusuarioo.c
     NavbarComponent,
     UsuariosComponent,
     ReportesComponent,
-    CrearusuariooComponent
+    CrearusuariooComponent,
+    LicenciasComponent
+    
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    
   ]
 })
 export class DashboardModule { }

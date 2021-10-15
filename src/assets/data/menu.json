@@ -10,5 +10,9 @@
     {
         "nombre": "reportes",
         "redirect": "/dashboard/reportes"
+    },
+    {
+        "nombre": "licencias",
+        "redirect": "/dashboard/licencias"
     }
 ]
