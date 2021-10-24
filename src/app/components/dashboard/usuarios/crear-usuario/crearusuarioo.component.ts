@@ -5,15 +5,22 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from '../../../../services/usuario.service';
 
+
+
 @Component({
   selector: 'app-crearusuarioo',
   templateUrl: './crearusuarioo.component.html',
   styleUrls: ['./crearusuarioo.component.css']
 })
+
+
 export class CrearusuariooComponent implements OnInit {
+  
+  
+ 
 
   genero: any[] = ['Hombre','Mujer'];
-  licencia: any[] = ['1 mes', '2 meses', '3 meses', '6 meses', '1 año']
+  licencia: any[] = ['1 mes, (50.000 COP)', '2 meses, (95.000 COP)', '3 meses, (145.000 COP)', '6 meses, (295.000 COP)', '1 año, (595.000 COP)']
   form: FormGroup;
 
   constructor(private fb: FormBuilder,  
@@ -26,8 +33,11 @@ export class CrearusuariooComponent implements OnInit {
     apellido: ['', Validators.required],
     genero: ['', Validators.required],
     licencia: ['', Validators.required],
-    })
+    });
    }
+
+   
+
   
   ngOnInit(): void {
   }
@@ -41,7 +51,8 @@ export class CrearusuariooComponent implements OnInit {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       genero: this.form.value.genero,
-      licencia: this.form.value.licencia
+      licencia: this.form.value.licencia,
+
     }
 
     
