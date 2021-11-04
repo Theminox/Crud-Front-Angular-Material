@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Client implements Serializable {
   @Id
   private String id;
-  private String name, lastName, age, address, city;
+  private String name, lastName, age, email, address, city;
   private LocalDate dateOfBirth;
 
   public String getId() {
@@ -42,6 +42,14 @@ public class Client implements Serializable {
 
   public void setAge(String age) {
     this.age = age;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String getAddress() {

@@ -7,18 +7,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "membership")
 public class Membership implements Serializable {
-  public final String ACTIVE = "ACTIVE";
-  public final String EXPIRATED = "EXPIRATED";
+  public static final String ACTIVE = "ACTIVE";
+  public static final String EXPIRATED = "EXPIRATED";
 
   @Id
   private String id;
   private String status;
   LocalDate purchased_date;
   LocalDate expiration_date;
+
+  public Membership() {
+    this.id = UUID.randomUUID().toString();
+    activateMembership();
+    this.purchased_date = LocalDate.now();
+  }
 
   public void activateMembership()
   {

@@ -1,21 +1,35 @@
 package co.edu.tdea.backend.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "sale")
 public class Sale {
-  private final String BIWEEKLY = "BIWEEKLY";
-  private final String MONTHLY = "MONTHLY";
+  public static final String BIWEEKLY = "BIWEEKLY";
+  public static final String MONTHLY = "MONTHLY";
 
   @Id
   private String id;
+
+  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JoinColumn(name = "client_id")
   private Client client;
+
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JoinColumn(name = "membership_id")
   private Membership membership;
+
   private String plan;
   private String value;
+
+  public Sale(Client client, Membership membership, String plan, String value) {
+    this.id = UUID.randomUUID().toString();
+    this.client = client;
+    this.membership = membership;
+    this.plan = plan;
+    this.value = value;
+  }
 
   public void takeBiweeklyPlan()
   {
