@@ -36,7 +36,7 @@ public class ClientService{
     return viewClientUseCase;
   }
 
-  public Membership purchaseMemership(String clientId, String plan, String value)
+  public Membership purchaseMembership(String clientId, String plan, String value)
   {
     return purchaseMembershipUseCase.apply(clientId, plan, value);
   }

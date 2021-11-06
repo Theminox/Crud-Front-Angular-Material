@@ -1,22 +1,23 @@
 package co.edu.tdea.backend.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "sale")
-public class Sale {
+public class Sale implements Serializable {
   public static final String BIWEEKLY = "BIWEEKLY";
   public static final String MONTHLY = "MONTHLY";
 
   @Id
   private String id;
 
-  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "client_id")
   private Client client;
 
-  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @JoinColumn(name = "membership_id")
   private Membership membership;
 
@@ -30,6 +31,8 @@ public class Sale {
     this.plan = plan;
     this.value = value;
   }
+
+  public Sale(){}
 
   public void takeBiweeklyPlan()
   {
