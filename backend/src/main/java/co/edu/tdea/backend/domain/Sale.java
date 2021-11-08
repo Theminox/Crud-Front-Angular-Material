@@ -11,6 +11,7 @@ public class Sale implements Serializable {
   public static final String MONTHLY = "MONTHLY";
 
   @Id
+  @Column(name="id")
   private String id;
 
   @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -21,7 +22,10 @@ public class Sale implements Serializable {
   @JoinColumn(name = "membership_id")
   private Membership membership;
 
+  @Column(name = "plan_ms")
   private String plan;
+
+  @Column(name = "value_ms")
   private String value;
 
   public Sale(Client client, Membership membership, String plan, String value) {
