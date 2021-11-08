@@ -39,7 +39,7 @@ public class ClientController {
   @Bean
   public RouterFunction<ServerResponse> purchaseMembership()
   {
-    return route(PUT("/clients/purchase").and(accept(MediaType.APPLICATION_JSON)),
+    return route(POST("/clients/purchase").and(accept(MediaType.APPLICATION_JSON)),
       request -> {
         var data = request.body(Map.class);
         return  ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
