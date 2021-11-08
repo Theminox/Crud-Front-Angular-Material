@@ -24,17 +24,17 @@ export class CrearService {
   constructor(private http: HttpClient) { }
 
   
-  Cliente(){
-    this.http.get('https://schoolgym.herokuapp.com/cliente').subscribe(
+Cliente(){
+   this.http.get('https://schoolgym.herokuapp.com/cliente').subscribe(
     (resp:any) => {
-    this.cliente = resp;
-  }),
-  (error: any) =>{
-    console.log(error);
+     this.cliente = resp;
+   }),
+   (error: any) =>{
+     console.log(error);
   }
   }
 
-  Membresia(){
+Membresia(){
     this.http.get('https://schoolgym.herokuapp.com/membresia').subscribe(
       (resp: any) => {
        this.membresia = resp;
@@ -74,5 +74,4 @@ MembresiaPost(){
     }
 }
  
-
 }
