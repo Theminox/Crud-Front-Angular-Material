@@ -20,7 +20,7 @@ export class UsuariosComponent implements OnInit {
 
   listUsuarios: Usuario[]=[];
 
-  displayedColumns: string[] = ['Usuarios', 'Nombre', 'Apellido', 'Genero', 'Licencia', 'Acciones'];
+  displayedColumns: string[] = ['Usuarios', 'Nombre', 'Apellido', 'Genero', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha', 'Acciones'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

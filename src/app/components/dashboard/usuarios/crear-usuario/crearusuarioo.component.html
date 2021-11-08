@@ -6,31 +6,66 @@
 
   <mat-card style="margin-top:10px">
     <form [formGroup]="form" (ngSubmit)="agregarUser()">
-      <mat-grid-list cols="4" rowHeight="70px">
+      <mat-grid-list cols="6" rowHeight="70px">
+
+        <mat-grid-tile [colspan]="6" [rowspan]="5">
+          <img src="./assets/img/registro.png" width="350" height="350">
+        </mat-grid-tile>
+
+
+
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
-            <mat-label>Usuario</mat-label>
+            <mat-label>Cedula</mat-label>
             <input matInput autocomplete="off" formControlName="usuario">
           </mat-form-field>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="3" [rowspan]="5">
-          <img src="./assets/img/registro.png" width="350" height="350">
-        </mat-grid-tile>
+        
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
             <mat-label>Nombre</mat-label>
             <input matInput autocomplete="off" formControlName="nombre">
           </mat-form-field>
-
         </mat-grid-tile>
+
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
             <mat-label>Apellido</mat-label>
             <input matInput autocomplete="off" formControlName="apellido">
           </mat-form-field>
         </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Edad</mat-label>
+            <input matInput autocomplete="off" formControlName="edad">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Email</mat-label>
+            <input matInput autocomplete="off" formControlName="email">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Ciudad</mat-label>
+            <input matInput autocomplete="off" formControlName="ciudad">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Dirección</mat-label>
+            <input matInput autocomplete="off" formControlName="direccion">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
@@ -51,6 +86,13 @@
                 {{item}}
               </mat-option>
             </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <mat-label>Fecha inicio de licencia</mat-label>
+            <input matInput autocomplete="off" formControlName="fecha">
           </mat-form-field>
         </mat-grid-tile>
 

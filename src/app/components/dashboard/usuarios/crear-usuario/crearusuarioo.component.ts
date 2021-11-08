@@ -16,11 +16,8 @@ import { UsuarioService } from '../../../../services/usuario.service';
 
 export class CrearusuariooComponent implements OnInit {
   
-  
- 
-
   genero: any[] = ['Hombre','Mujer'];
-  licencia: any[] = ['1 mes, (50.000 COP)', '2 meses, (95.000 COP)', '3 meses, (145.000 COP)', '6 meses, (295.000 COP)', '1 año, (595.000 COP)']
+  licencia: any[] = ['15 dias, (59.000)','30 dias, (99.000)']
   form: FormGroup;
 
   constructor(private fb: FormBuilder,  
@@ -33,6 +30,11 @@ export class CrearusuariooComponent implements OnInit {
     apellido: ['', Validators.required],
     genero: ['', Validators.required],
     licencia: ['', Validators.required],
+    edad: ['', Validators.required],
+    email: ['', Validators.required],
+    direccion: ['', Validators.required],
+    ciudad: ['', Validators.required],
+    fecha: ['', Validators.required]
     });
    }
 
@@ -52,6 +54,11 @@ export class CrearusuariooComponent implements OnInit {
       apellido: this.form.value.apellido,
       genero: this.form.value.genero,
       licencia: this.form.value.licencia,
+      edad: this.form.value.edad,
+      email: this.form.value.email,
+      ciudad: this.form.value.ciudad,
+      direccion: this.form.value.direccion,
+      fecha: this.form.value.fecha
 
     }
 

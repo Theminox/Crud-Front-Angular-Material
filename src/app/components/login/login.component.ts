@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       this.form.reset();
     }
   }
+  
   error(){
     this._snackBar.open('usuario o contraseña incorrectos', '',{
       duration: 6000,
