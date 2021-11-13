@@ -1,5 +1,5 @@
 export interface Usuario {
-    usuario: string;
+    cedula: string;
     nombre: string;
     apellido: string;
     genero: String;

@@ -25,7 +25,7 @@ export class CrearusuariooComponent implements OnInit {
               private router: Router,
               private _snackBar: MatSnackBar) {
     this.form = this.fb.group({
-    usuario: ['', Validators.required],
+    cedula: ['', Validators.required],
     nombre: ['', Validators.required],
     apellido: ['', Validators.required],
     genero: ['', Validators.required],
@@ -49,7 +49,7 @@ export class CrearusuariooComponent implements OnInit {
     
 
     const user: Usuario = {
-      usuario: this.form.value.usuario,
+      cedula: this.form.value.usuario,
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       genero: this.form.value.genero,

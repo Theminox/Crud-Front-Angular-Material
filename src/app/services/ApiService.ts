@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
+const API_URL:String = 'https://schoolgym.herokuapp.com';
+
 @Injectable({
   providedIn: 'root'
 })
 
-export class CrearService {
+export class ApiService {
+
 
   cliente = '';
   membresia = '';
-  historial = '';
   clientepost = '';
   membresiapost = '';
   
   ngOnInit() {
-    this.Cliente();
-    this.Membresia();
-    this.Historial();
-    this.ClientePost();
-    this.MembresiaPost();
     }
 
   constructor(private http: HttpClient) { }
-
+  
+  getSales(){
+    return this.http.get(`${API_URL}/sales`);
+  }
   
 Cliente(){
    this.http.get('https://schoolgym.herokuapp.com/cliente').subscribe(
@@ -44,15 +44,6 @@ Membresia(){
       }
   }
   
-Historial(){
-  this.http.get('https://schoolgym.herokuapp.com/historial').subscribe(
-    (resp: any) => {
-     this.historial = resp;
-    }),
-    (error: any) =>{
-      console.log(error);
-    }
-}
 
 ClientePost(){
   this.http.post('https://schoolgym.herokuapp.com/cliente', {title: 'cliente post'}).subscribe(

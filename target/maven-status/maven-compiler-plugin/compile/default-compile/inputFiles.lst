@@ -1,0 +1,16 @@
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\usecases\CheckMembershipUseCase.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\infrastructure\repository\SaleRepository.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\domain\Client.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\infrastructure\repository\ClientRepository.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\services\ClientService.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\infrastructure\repository\MembershipRepository.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\usecases\RegisterClientUseCase.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\domain\Sale.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\usecases\PurchaseMembershipUseCase.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\BackendApplication.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\infrastructure\routers\SaleController.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\services\SaleService.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\usecases\ListHistorySalesUseCase.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\domain\Membership.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\infrastructure\routers\ClientController.java
+C:\Users\andre\Documents\workspace-vscode\Crud-Front-Angular-Material\src\main\java\co\edu\tdea\backend\application\usecases\ViewClientUseCase.java

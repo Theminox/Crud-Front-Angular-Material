@@ -5,11 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from '../../../interfaces/usuario';
-
-
-
-
-
+import { ApiService } from '../../../services/ApiService';
 
 @Component({
   selector: 'app-usuarios',
@@ -20,20 +16,38 @@ export class UsuariosComponent implements OnInit {
 
   listUsuarios: Usuario[]=[];
 
-  displayedColumns: string[] = ['Usuarios', 'Nombre', 'Apellido', 'Genero', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha', 'Acciones'];
+  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Genero', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha', 'Acciones'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _usuarioService: UsuarioService,  private _snackBar: MatSnackBar) { }
+  constructor(private _apiService: ApiService ,private _usuarioService: UsuarioService,  
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.cargarUsuarios();
   }
 
   cargarUsuarios(){
-    this.listUsuarios = this._usuarioService.getUsuarios();
+    this._apiService.getSales().subscribe((data)=>
+    {
+      /*this.listUsuarios = [
+        {
+            cedula: data.client.id,
+            nombre: data.client.name,
+            apellido: data.client.lastName,
+            genero: "",
+            licencia: data.membership.status,
+            edad: data.membership.status,
+            email: data.membership.status,
+            ciudad: data.membership.status,
+            direccion: data.membership.status,
+            fecha: data.membership.status
+        }
+      ]*/
+      console.log(data);
+    });
     this.dataSource = new MatTableDataSource(this.listUsuarios);
   }
   
