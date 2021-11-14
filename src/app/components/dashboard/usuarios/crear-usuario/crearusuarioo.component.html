@@ -17,7 +17,7 @@
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
             <mat-label>Cedula</mat-label>
-            <input matInput autocomplete="off" formControlName="usuario">
+            <input matInput autocomplete="off" formControlName="cedula">
           </mat-form-field>
         </mat-grid-tile>
 
@@ -65,16 +65,11 @@
           </mat-form-field>
         </mat-grid-tile>
 
-        
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
-            <mat-label>Genero</mat-label>
-            <mat-select formControlName="genero">
-              <mat-option *ngFor="let item of genero" [value]="item">
-                {{item}}
-              </mat-option>
-            </mat-select>
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input type="date" matInput autocomplete="off" formControlName="fecha_nacimiento">
           </mat-form-field>
         </mat-grid-tile>
 
@@ -91,14 +86,14 @@
         
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
-            <mat-label>Fecha inicio de licencia</mat-label>
-            <input matInput autocomplete="off" formControlName="fecha">
+            <mat-label>Costo</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="costo">
           </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <button mat-raised-button style="margin-right: 20px;">Volver</button>
-          <button type="sumbit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button>
+          <button type="sumbit"  mat-raised-button color="primary">Aceptar</button>
         </mat-grid-tile>
 
       </mat-grid-list>

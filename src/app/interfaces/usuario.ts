@@ -1,12 +1,11 @@
 export interface Usuario {
-    cedula: string;
-    nombre: string;
-    apellido: string;
-    genero: String;
-    licencia: String;
-    edad: String;
+    id: any;
+    name: string;
+    lastName: string;
+    //gender: String;
+    age: String;
     email: String;
-    ciudad: String;
-    direccion: String;
-    fecha: String;
+    city: String;
+    address: String;
+    dateOfBirth: String;
 }

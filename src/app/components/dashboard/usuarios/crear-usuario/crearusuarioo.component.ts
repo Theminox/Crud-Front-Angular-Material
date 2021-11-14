@@ -3,7 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
-import { UsuarioService } from '../../../../services/usuario.service';
+import { Membresia } from '../../../../interfaces/membresia';
+import { ApiService } from '../../../../services/api.service';
+import { UsuariosComponent } from '../usuarios.component';
 
 
 
@@ -17,13 +19,13 @@ import { UsuarioService } from '../../../../services/usuario.service';
 export class CrearusuariooComponent implements OnInit {
   
   genero: any[] = ['Hombre','Mujer'];
-  licencia: any[] = ['15 dias, (59.000)','30 dias, (99.000)']
+  licencia: any[] = ['BIWEEKLY','MONTHLY']
   form: FormGroup;
 
   constructor(private fb: FormBuilder,  
-              private _usuarioService: UsuarioService, 
               private router: Router,
-              private _snackBar: MatSnackBar) {
+              private _snackBar: MatSnackBar,
+              private _api: ApiService) {
     this.form = this.fb.group({
     cedula: ['', Validators.required],
     nombre: ['', Validators.required],
@@ -34,7 +36,8 @@ export class CrearusuariooComponent implements OnInit {
     email: ['', Validators.required],
     direccion: ['', Validators.required],
     ciudad: ['', Validators.required],
-    fecha: ['', Validators.required]
+    fecha_nacimiento: ['', Validators.required],
+    costo:['', Validators.required]
     });
    }
 
@@ -46,30 +49,53 @@ export class CrearusuariooComponent implements OnInit {
 
 
   agregarUser(){
-    
-
     const user: Usuario = {
-      cedula: this.form.value.usuario,
-      nombre: this.form.value.nombre,
-      apellido: this.form.value.apellido,
-      genero: this.form.value.genero,
-      licencia: this.form.value.licencia,
-      edad: this.form.value.edad,
+      id: this.form.value.cedula,
+      name: this.form.value.nombre,
+      lastName: this.form.value.apellido,
+      age: this.form.value.edad,
       email: this.form.value.email,
-      ciudad: this.form.value.ciudad,
-      direccion: this.form.value.direccion,
-      fecha: this.form.value.fecha
-
+      city: this.form.value.ciudad,
+      address: this.form.value.direccion,
+      dateOfBirth: this.form.value.fecha_nacimiento
     }
 
-    
-    this._usuarioService.agregarUsuario(user);
-    this.router.navigate(['./dashboard/usuarios'])
-    this._snackBar.open('El usuario ha sido agregado', '',{
-      duration: 6000,
-      horizontalPosition: 'center',
-      verticalPosition: 'bottom',
-    })
+    const membership:any = 
+    {
+        clientId: this.form.value.cedula,
+        plan: this.form.value.licencia,
+        value: this.form.value.costo
+    }
+
+    this._api.getClient(user.id).subscribe(data =>
+      {
+        this._api.purchaseMembership(membership).subscribe(()=>
+        {
+          this.router.navigate(['./dashboard/usuarios'])
+          this._snackBar.open('El usuario ha sido agregado', '',{
+            duration: 6000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          })
+        });
+      },
+      (onError)=>
+      {
+        this._api.registerClient(user).subscribe(()=>
+        {
+          this._api.purchaseMembership(membership).subscribe(()=>
+          {
+            this.router.navigate(['./dashboard/usuarios'])
+            this._snackBar.open('El usuario ha sido agregado', '',{
+              duration: 6000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+            })
+          });
+        });
+      });
+
+
   }
 
 }

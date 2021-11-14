@@ -3,26 +3,28 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from '../../../interfaces/usuario';
-import { ApiService } from '../../../services/ApiService';
+import { ApiService } from '../../../services/api.service';
+import { Venta } from '../../../interfaces/venta';
 
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
+
 export class UsuariosComponent implements OnInit {
 
-  listUsuarios: Usuario[]=[];
+  listUsuarios: any=[];
+  ventas: any = [];
 
-  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'Genero', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha', 'Acciones'];
+  displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'fecha_nacimiento', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _apiService: ApiService ,private _usuarioService: UsuarioService,  
+  constructor(private _apiService: ApiService ,  
     private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -30,25 +32,11 @@ export class UsuariosComponent implements OnInit {
   }
 
   cargarUsuarios(){
-    this._apiService.getSales().subscribe((data)=>
-    {
-      /*this.listUsuarios = [
-        {
-            cedula: data.client.id,
-            nombre: data.client.name,
-            apellido: data.client.lastName,
-            genero: "",
-            licencia: data.membership.status,
-            edad: data.membership.status,
-            email: data.membership.status,
-            ciudad: data.membership.status,
-            direccion: data.membership.status,
-            fecha: data.membership.status
-        }
-      ]*/
-      console.log(data);
-    });
-    this.dataSource = new MatTableDataSource(this.listUsuarios);
+    this._apiService.getSales().subscribe(response =>
+      {
+        this.ventas = response;
+        this.dataSource = new MatTableDataSource(this.ventas);
+      });
   }
   
   ngAfterViewInit(){
@@ -64,7 +52,6 @@ export class UsuariosComponent implements OnInit {
   eliminarUsuario(index: number){
     console.log(index)
 
-    this._usuarioService.eliminarUsuario(index);
     this.cargarUsuarios();
 
     this._snackBar.open('El usuario ha sido eliminado', '',{
