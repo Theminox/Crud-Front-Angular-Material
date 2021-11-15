@@ -17,6 +17,7 @@ export class UsuariosComponent implements OnInit {
 
   listUsuarios: any=[];
   ventas: any = [];
+  loading:boolean = false;
 
   displayedColumns: string[] = ['Cedula', 'Nombre', 'Apellido', 'fecha_nacimiento', 'Licencia','Edad', 'Email', 'Ciudad', 'Direccion', 'Fecha'];
   dataSource!: MatTableDataSource<any>;
@@ -32,10 +33,12 @@ export class UsuariosComponent implements OnInit {
   }
 
   cargarUsuarios(){
+    this.loading = true;
     this._apiService.getSales().subscribe(response =>
       {
         this.ventas = response;
         this.dataSource = new MatTableDataSource(this.ventas);
+        this.loading = false;
       });
   }
   

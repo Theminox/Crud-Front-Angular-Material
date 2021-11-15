@@ -40,5 +40,10 @@ purchaseMembership(data:any){
   return this.http.post(`${API_URL}/clients/purchase`, JSON.stringify(data), {headers: {"content-type": "application/json"}});
 
 }
+
+checkMembership(id:String)
+{
+    return this.http.get(`${API_URL}/clients/${id}/check-membership`);
+}
  
 }

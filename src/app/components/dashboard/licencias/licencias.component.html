@@ -2,4 +2,56 @@
     <mat-toolbar>
         <span>Licencias</span>
       </mat-toolbar> 
+      <mat-card style="margin-top:10px">
+        <form [formGroup]="form" (ngSubmit)="comprobarMembresia()">
+          <mat-grid-list cols="6" rowHeight="70px">
+    
+            <mat-grid-tile [colspan]="6" [rowspan]="5">
+              <img src="./assets/img/registro.png" width="350" height="350">
+            </mat-grid-tile>
+    
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field class="ancho">
+                <mat-label>Cedula</mat-label>
+                <input matInput autocomplete="off" formControlName="cedula">
+              </mat-form-field>
+            </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button type="submit"  mat-raised-button color="primary">Comprobar</button>
+              </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+
+        <form [formGroup]="form" *ngIf="membership.id">
+          <mat-grid-list cols="6" rowHeight="70px">
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                  <mat-label>Licencia ID</mat-label>
+                  <input matInput autocomplete="off" formControlName="licencia_id" readonly>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                  <mat-label>Estado</mat-label>
+                  <input matInput autocomplete="off" formControlName="estado" value="" readonly>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                  <mat-label>Fecha de compra</mat-label>
+                  <input matInput autocomplete="off" formControlName="fecha_compra" value="" readonly>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                  <mat-label>Fecha de expiracion</mat-label>
+                  <input matInput autocomplete="off" formControlName="fecha_expiracion" value="" readonly>
+                </mat-form-field>
+              </mat-grid-tile>
+          </mat-grid-list>
+
+        </form>
+
+        <h1 *ngIf="!membership.id">{{membership}}</h1>
+      </mat-card>
     </div>

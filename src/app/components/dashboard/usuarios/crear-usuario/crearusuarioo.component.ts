@@ -3,9 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
-import { Membresia } from '../../../../interfaces/membresia';
 import { ApiService } from '../../../../services/api.service';
-import { UsuariosComponent } from '../usuarios.component';
 
 
 
@@ -20,6 +18,7 @@ export class CrearusuariooComponent implements OnInit {
   
   genero: any[] = ['Hombre','Mujer'];
   licencia: any[] = ['BIWEEKLY','MONTHLY']
+  loading:boolean = false;
   form: FormGroup;
 
   constructor(private fb: FormBuilder,  
@@ -49,6 +48,7 @@ export class CrearusuariooComponent implements OnInit {
 
 
   agregarUser(){
+    this.loading = true;
     const user: Usuario = {
       id: this.form.value.cedula,
       name: this.form.value.nombre,

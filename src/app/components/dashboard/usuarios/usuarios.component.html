@@ -78,7 +78,8 @@
         </div>
       </div>
       </div>
-      <h2 style="text-align: center "*ngIf="listUsuarios.length == 0">No hay registros para mostrar</h2>
+      <h2 style="text-align: center " *ngIf="loading">Cargando...</h2>
+      <h2 style="text-align: center "*ngIf="listUsuarios.length == 0 && !loading">No hay registros para mostrar</h2>
 
 
       

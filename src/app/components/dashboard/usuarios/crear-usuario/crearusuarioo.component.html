@@ -93,9 +93,10 @@
 
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <button mat-raised-button style="margin-right: 20px;">Volver</button>
-          <button type="sumbit"  mat-raised-button color="primary">Aceptar</button>
+          <button type="submit"  mat-raised-button color="primary">Aceptar</button>
         </mat-grid-tile>
 
+        <h2 *ngIf="loading">Cargando...</h2>
       </mat-grid-list>
     </form>
 
