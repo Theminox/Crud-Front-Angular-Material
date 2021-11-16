@@ -22,6 +22,9 @@
     "@angular/router": "~12.2.0",
     "angularfire2": "^5.4.2",
     "firebase": "^9.3.0",
+    "jspdf": "^2.4.0",
+    "jspdf-autotable": "^3.5.23",
+    "pdfkit": "^0.13.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

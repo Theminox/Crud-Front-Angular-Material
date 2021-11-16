@@ -7,5 +7,6 @@
   <p>Click en el boton descargar para obtener el PDF con los reportes</p>
 </div>
 <div class="esp">
-  <button mat-raised-button color="primary">Descargar</button>
+  <button mat-raised-button color="primary" (click)="downloadPDF()">Descargar</button>
 </div>
+<h2 style="text-align: center;" *ngIf="loading">Cargando datos....</h2>
